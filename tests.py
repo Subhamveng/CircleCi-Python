@@ -1,13 +1,11 @@
 import unittest
-from main import to_upper
-
+from main import to_lower
 
 class MyTestCase(unittest.TestCase):
-    def test_to_upper(self):
+    def test_to_lower(self):
         name = "SubhamPradhan"
-        upper_name = to_upper(name)
-        self.assertEqual(upper_name, "SUBHAMPRADHAN")
-
+        lower_name = to_lower(name)
+        self.assertEqual(lower_name, "subhampradhan")
 
 if __name__ == '__main__':
     unittest.main()
