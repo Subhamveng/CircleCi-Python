@@ -1,15 +1,11 @@
-def to_upper(name):
-    return name.upper()
-
+def to_lower(name):
+    return name.lower()
 
 def say_hello(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hello, {name}')  # Press ⌘F8 to toggle the breakpoint.
+    print(f'Hello, {name}')
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     name = 'SubhamPradhan'
     say_hello(name)
-    up = to_upper(name)
+    up = to_lower(name)
     print(up)
