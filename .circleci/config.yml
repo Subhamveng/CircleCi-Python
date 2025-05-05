@@ -7,17 +7,25 @@ jobs:
     steps:
       - checkout
       - run: python main.py
+
   test:
     docker:
       - image: cimg/python:3.11
     steps:
       - checkout
       - run: python tests.py
+
   deploy:
     docker:
       - image: cimg/python:3.11
     steps:
       - run: echo "Deploying to production server"
+
+  runner-test:
+    machine: true
+    resource_class: xcdy_r4ddpxshglv948uq4d/test
+    steps:
+      - run: echo "Hi I'm on Runners!"
 
 workflows:
   build_and_test_deploy:
@@ -25,10 +33,13 @@ workflows:
       - build
       - test:
           requires:
-            - build 
+            - build
       - deploy:
           requires:
             - test
           filters:
             branches:
               only: main
+      - runner-test:
+          requires:
+            - deploy
